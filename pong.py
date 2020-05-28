@@ -10,7 +10,7 @@ wn.tracer(0)                    #doesnt updte window, faster exe
 #scores
 score_a = 0
 score_b = 0
-ballSpeed_inc = 0.1
+ballSpeed_inc = 0.01
 
 #paddle 1
 paddle_a = turtle.Turtle()
