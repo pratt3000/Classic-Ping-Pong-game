@@ -34,7 +34,7 @@ paddle_b.goto(350, 0)
 ball = turtle.Turtle()
 ball.speed(0)                   #set speed to max
 ball.shape("circle")
-ball.color("white")
+ball.color("red")
 ball.penup()
 ball.goto(0, 0)
 ball.dx = 0.1                   #ball x coor speed
@@ -44,10 +44,14 @@ ball.dy = 0.1                   #ball y coor speed
 def paddle_a_up():              #moving 'a' up
     y = paddle_a.ycor()
     y += 20
+    if y>230:
+        y=230
     paddle_a.sety(y)
 def paddle_a_down():            #moving 'a' down
     y = paddle_a.ycor()
     y -= 20
+    if y<-230:
+        y=-230
     paddle_a.sety(y)
 wn.listen()                     #read keyboard ip
 wn.onkeypress(paddle_a_up, "w")
@@ -58,10 +62,14 @@ wn.onkeypress(paddle_a_down, "s")
 def paddle_b_up():              # moving 'b' up
     y = paddle_b.ycor()
     y += 20
+    if y>230:
+        y=230
     paddle_b.sety(y)
 def paddle_b_down():            # moving 'b' down
     y = paddle_b.ycor()
     y -= 20
+    if y<-230:
+        y=-230
     paddle_b.sety(y)
 wn.listen()                     # read keyboard ip
 wn.onkeypress(paddle_b_up, "Up")
