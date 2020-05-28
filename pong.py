@@ -1,5 +1,6 @@
 import turtle
 import os
+import time
 
 wn = turtle.Screen()
 wn.title("Ping-Pong by Pratt")
@@ -7,10 +8,11 @@ wn.bgcolor("black")
 wn.setup(width=800, height = 600)
 wn.tracer(0)                    #doesnt updte window, faster exe
 
-#scores
+#variable initialization
 score_a = 0
 score_b = 0
 ballSpeed_inc = 0.01
+end_score = 10
 
 #paddle 1
 paddle_a = turtle.Turtle()
@@ -85,7 +87,6 @@ pen.hideturtle()                # only text is needed pen need not be shown
 pen.goto(0, 260)
 pen.write("Player A: 0 Player B: 0", align= "center",font=("Courier", 24, "normal") )
 
-
 # main game loop
 while True:
     wn.update()                     # update screen when someone wins
@@ -147,5 +148,17 @@ while True:
         ball.dx *= -1
         os.system("aplay bounce.wav&")
 
+    if score_a==end_score or score_b==end_score:
+        pen.penup()                     #starts at origin we dont want to draw unwanted line
+        pen.goto(0, 0)
+        pen.write("GAME OVER", align = "center", font=("Courier", 48, "normal"))
+        pen.penup()                     #starts at origin we dont want to draw unwanted line
+        pen.goto(0, -40)
+        if score_a > score_b:
+            pen.write(" PLAYER A is the winner ", align = "center", font=("Courier", 24, "normal"))
+        else:
+            pen.write(" PLAYER B is the winner ", align = "center", font=("Courier", 24, "normal"))
+        time.sleep(3)
+        turtle.bye()
 
-    
+
